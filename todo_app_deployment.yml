@@ -19,7 +19,7 @@ spec:
             - containerPort: 5000
           volumeMounts:
              - name: test
-               mountPath: ./
+               mountPath: /app
       
       volumes:
         - name: test

@@ -17,14 +17,14 @@ spec:
           image: rupali1520/todo:version1
           ports:
             - containerPort: 5000
-          volumeMounts:
-             - name: test
-               mountPath: /app
+#           volumeMounts:
+#              - name: test
+#                mountPath: /app
       
-      volumes:
-        - name: test
-          hostPath:
-             path: /tmp/data1      
+#       volumes:
+#         - name: test
+#           hostPath:
+#              path: /tmp/data1      
 ---
 
 apiVersion: v1

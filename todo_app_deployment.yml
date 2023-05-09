@@ -50,7 +50,7 @@ spec:
             - containerPort: 5000
           volumeMounts:
             - name: my-pvc
-              mountPath: /app
+              mountPath: /data
       volumes:
         - name: my-pvc
           persistentVolumeClaim:

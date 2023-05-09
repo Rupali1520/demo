@@ -17,7 +17,7 @@ spec:
           image: rupali1520/todo:version1
           ports:
             - containerPort: 5000
-#           volumeMounts:
+#           volumeMounts:kn
 #              - name: test
 #                mountPath: /app
       

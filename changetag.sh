@@ -1,1 +1,1 @@
-sed -i "s/${BUILD_ID}/$1/g" todo_app_deployment.yml
+sed -i "s/version1/$1/g" todo_app_deployment.yml

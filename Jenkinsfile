@@ -52,7 +52,9 @@ pipeline {
         
     }
     post{
-        
+        when{
+                branch 'main'
+            }
         
           
         success{

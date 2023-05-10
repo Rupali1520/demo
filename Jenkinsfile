@@ -9,6 +9,9 @@ pipeline {
         }
         stage("build")
         {
+            when{
+                branch 'main'
+            }
             steps{
                 sh 'sudo docker build -t rupali1520/todo:${BUILD_NUMBER} .'
                 echo "build success"
@@ -22,6 +25,9 @@ pipeline {
         }
         stage('push image')
         {
+             when{
+                branch 'main'
+            }
             steps{
                 withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'docker')]) {
                   sh 'sudo docker login -u rupali1520 -p ${docker}'
@@ -31,6 +37,9 @@ pipeline {
         }
         stage('deploy')
         {
+             when{
+                branch 'main'
+            }
             steps{
                 sh 'sudo chmod u+x changetag.sh'
                 sh './changetag.sh ${BUILD_NUMBER}'

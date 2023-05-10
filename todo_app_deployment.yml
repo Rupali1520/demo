@@ -37,4 +37,6 @@ spec:
       protocol: "TCP"
       targetPort: 5000
       nodePort: 30301
+      
+ //jsbxdjs
 

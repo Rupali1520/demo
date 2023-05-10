@@ -37,6 +37,36 @@ spec:
   replicas: 1
   selector:
     matchLabels:
+      run: backends
+  template:
+    metadata:
+      labels:
+        run: backends
+    spec:
+      containers:
+         - name: database-container
+           image: rupali1520/todo:version1
+           env:
+             - name: DATABASE_URL
+               value: "sqlite:///app/todo.db"
+           volumeMounts:
+             - name: data-volume
+               mountPath: /app
+        
+      volumes:
+       - name: data-volume
+         hostPath:
+          path: /data/db  
+          
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
       run: todo-app
   template:
     metadata:
@@ -44,18 +74,18 @@ spec:
         run: todo-app
     spec:
       containers:
-        - name: todo-app
-          image: rupali1520/todo:version1
-          ports:
-            - containerPort: 5000
-#           volumeMounts:
-#             - name: my-pvc
-#               mountPath: /app
-#               readOnly: yes
-#       volumes:
-#         - name: my-pvc
-#           persistentVolumeClaim:
-#             claimName: my-pvc      
+         - name: frontend-container
+           image: rupali1520/todo:version1
+           ports:
+             - containerPort: 5000
+           volumeMounts:
+             - name: data-volume
+               mountPath: /app
+      volumes:
+       - name: data-volume
+         hostPath:
+          path: /data/db
+
 ---
 
 apiVersion: v1

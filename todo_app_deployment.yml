@@ -1,31 +1,31 @@
-kind: PersistentVolume
-apiVersion: v1
-metadata:
-  name: my-pv
-spec:
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: /data/my-app
+# kind: PersistentVolume
+# apiVersion: v1
+# metadata:
+#   name: my-pv
+# spec:
+#   capacity:
+#     storage: 1Gi
+#   accessModes:
+#     - ReadWriteOnce
+#   hostPath:
+#     path: /data/my-app
 
----
-
-
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: my-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
+# ---
 
 
----
+# kind: PersistentVolumeClaim
+# apiVersion: v1
+# metadata:
+#   name: my-pvc
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 1Gi
+
+
+# ---
 
 
 
@@ -48,14 +48,14 @@ spec:
           image: rupali1520/todo:version1
           ports:
             - containerPort: 5000
-          volumeMounts:
-            - name: my-pvc
-              mountPath: /app
-              readOnly: yes
-      volumes:
-        - name: my-pvc
-          persistentVolumeClaim:
-            claimName: my-pvc      
+#           volumeMounts:
+#             - name: my-pvc
+#               mountPath: /app
+#               readOnly: yes
+#       volumes:
+#         - name: my-pvc
+#           persistentVolumeClaim:
+#             claimName: my-pvc      
 ---
 
 apiVersion: v1

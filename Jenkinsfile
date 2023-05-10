@@ -37,9 +37,6 @@ pipeline {
         }
         stage('deploy')
         {
-             when{
-                branch 'main'
-            }
             steps{
                 sh 'sudo chmod u+x changetag.sh'
                 sh './changetag.sh ${BUILD_NUMBER}'

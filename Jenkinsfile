@@ -49,5 +49,50 @@ pipeline {
 }
             }
         }
+        
     }
+    post{
+        
+        
+          
+        success{
+        
+        
+          
+            mail to: "rupali.gupta@knoldus.com",
+        
+        
+          
+            subject: "Build is successfull",
+        
+        
+          
+            body: "success"
+        
+        
+          
+        }
+        
+        
+          
+    failure{
+        
+        
+          
+      mail to: "rupali.gupta@knoldus.com",
+        
+        
+          
+            subject: "Build is failed",
+        
+        
+          
+            body: "failed"
+        
+        
+          
+    }
+        
+        
+            }
 }

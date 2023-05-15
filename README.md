@@ -8,3 +8,8 @@ Requirements:
   Flask
   Flask_sqlalchemy
   Sqlite3
+  
+  
+  
+  
+  

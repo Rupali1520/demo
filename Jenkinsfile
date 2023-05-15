@@ -7,6 +7,16 @@ pipeline {
              git branch: 'main', credentialsId: 'newtoken', url: 'https://github.com/Rupali1520/demo.git'
             }
         }
+                stage("install packages through ansible")
+        {
+            when{
+                sh 'ansible-playbook install-jenkins.yaml'
+            }
+            steps{
+                sh 'sudo docker build -t rupali1520/todo:${BUILD_NUMBER} .'
+                echo "build success"
+            }
+        }
         stage("build")
         {
             when{

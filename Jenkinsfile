@@ -44,7 +44,7 @@ pipeline {
                 sh 'sudo chmod u+x changetag.sh'
                 sh './changetag.sh ${BUILD_NUMBER}'
                 //sh 'cat todo_app_deployment.yml'
-               withCredentials([file(credentialsId: '07280694-d0aa-406c-a1b0-efceab8a44d8', variable: 'var1')])  {
+               withCredentials([file(credentialsId: '66611ddf-d5b2-4c82-8bfe-328903bef7d5', variable: 'kube')]) {
     sh "kubectl --kubeconfig=$var1 --validate=false apply -f todo_app_deployment.yml"
 }
             }

@@ -7,8 +7,21 @@ pipeline {
              git branch: 'main', credentialsId: 'newtoken', url: 'https://github.com/Rupali1520/demo.git'
             }
         }
-        stage('install packages through ansible'){steps{sh 'ansible-playbook intsall-jenkins.yaml'}}
-        stage("build")
+        stage('build through ansible')
+        {
+            steps
+         {
+             sh 'ansible-playbook intsall-jenkins.yaml'
+         }
+        }
+        
+        stage('test')
+        {
+            steps{
+                echo 'test ok '
+            }
+        }
+        stage("build docker image")
         {
             when{
                 branch 'main'
@@ -16,12 +29,6 @@ pipeline {
             steps{
                 sh 'sudo docker build -t rupali1520/todo:${BUILD_NUMBER} .'
                 echo "build success"
-            }
-        }
-        stage('test')
-        {
-            steps{
-                echo 'test ok '
             }
         }
         stage('push image')

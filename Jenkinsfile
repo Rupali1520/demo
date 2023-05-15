@@ -7,7 +7,7 @@ pipeline {
              git branch: 'main', credentialsId: 'newtoken', url: 'https://github.com/Rupali1520/demo.git'
             }
         }
-//         stage('install packages through ansible'){steps{sh 'ansible-playbook install-jenkins.yaml'}}
+        stage('install packages through ansible'){steps{sh 'ansible-playbook intsall-jenkins.yaml'}}
         stage("build")
         {
             when{

@@ -7,6 +7,8 @@ pipeline {
              git branch: 'main', credentialsId: 'newtoken', url: 'https://github.com/Rupali1520/demo.git'
             }
         }
+        
+        
         stage('build through ansible')
         {
             steps

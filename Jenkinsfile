@@ -7,13 +7,13 @@ pipeline {
              git branch: 'main', credentialsId: 'newtoken', url: 'https://github.com/Rupali1520/demo.git'
             }
         }
-        stage('build through ansible')
-        {
-            steps
-         {
-             sh 'ansible-playbook intsall-jenkins.yaml'
-         }
-        }
+//         stage('build through ansible')
+//         {
+//             steps
+//          {
+//              sh 'ansible-playbook intsall-jenkins.yaml'
+//          }
+//         }
         
         stage('test')
         {
